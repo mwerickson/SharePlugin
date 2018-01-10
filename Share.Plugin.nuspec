@@ -7,8 +7,8 @@
        <authors>Jakob Gürtl,James Montemagno</authors>
        <owners>Jakob Gürtl,JamesMontemagno</owners>
      <iconUrl>http://refractored.com/images/plugin_share.png</iconUrl>
-     <licenseUrl>https://github.com/jguertl/SharePlugin/blob/master/LICENSE.md</licenseUrl>
-	     <projectUrl>https://github.com/jguertl/SharePlugin</projectUrl>
+     <licenseUrl>https://github.com/mwerickson/SharePlugin/blob/master/LICENSE.md</licenseUrl>
+	     <projectUrl>https://github.com/mwerickson/SharePlugin</projectUrl>
        <requireLicenseAcceptance>false</requireLicenseAcceptance>
        <description>
          Share Plugin for Xamarin and Windows to share text, link, copy text to clipboard, or open a browser.

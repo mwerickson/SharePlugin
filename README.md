@@ -11,7 +11,7 @@ Get started by reading through the [Share Plugin documentation](docs)
 
 
 ### Build:
-* [![Build status](https://ci.appveyor.com/api/projects/status/xuonj5weexcjk6g9?svg=true)](https://ci.appveyor.com/project/JamesMontemagno/shareplugin)
+* [![Build status](https://ci.appveyor.com/api/projects/status/xuonj5weexcjk6g9?svg=true)](https://ci.appveyor.com/project/mwerickson/shareplugin)
 
 
 ### Platform Support

@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using UIKit;
+using WebKit;
 
 namespace Plugin.Share
 {
@@ -60,6 +61,18 @@ namespace Plugin.Share
                     }
                     
                     await vc.PresentViewControllerAsync(sfViewController, true);
+                }
+                else if ((options?.UseWKWebView ?? false) && UIDevice.CurrentDevice.CheckSystemVersion(9, 0))
+                {
+	                // create the view controller
+	                var vc = GetVisibleViewController();
+	                var wkWebViewController = new UIViewController();
+	                // create the WKWebView
+	                var wkWebView = new WKWebView(vc.View.Frame, new WKWebViewConfiguration());
+	                wkWebViewController.View.AddSubview(wkWebView);
+	                var request = new NSUrlRequest(new NSUrl(url));
+	                wkWebView.LoadRequest(request);
+	                await vc.PresentViewControllerAsync(wkWebViewController, true);
                 }
                 else
                 {

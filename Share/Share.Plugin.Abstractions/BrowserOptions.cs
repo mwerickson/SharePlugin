@@ -21,6 +21,13 @@ namespace Plugin.Share.Abstractions
         /// Default is false.
         /// </summary>
         public bool UseSafariReaderMode { get; set; } = false;
+
+	    /// <summary>
+	    /// iOS: Gets or sets to use the WKWebView on iOS 9+.
+	    /// Recommended for use with site needing access to the camera
+	    /// Default is false.
+	    /// </summary>
+	    public bool UseWKWebView { get; set; } = false;
         
         /// <summary>
         /// iOS: Gets or sets the color to tint the background of the navigation bar and the toolbar (iOS 10+ only).
