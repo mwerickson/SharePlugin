@@ -62,7 +62,7 @@ namespace Plugin.Share
                     
                     await vc.PresentViewControllerAsync(sfViewController, true);
                 }
-                else if ((options?.UseWKWebView ?? false) && UIDevice.CurrentDevice.CheckSystemVersion(9, 0))
+                else if (options?.UseWKWebView ?? false)
                 {
 	                // create the view controller
 	                var vc = GetVisibleViewController();
