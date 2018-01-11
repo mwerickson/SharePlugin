@@ -35,62 +35,51 @@ namespace Plugin.Share
                 if (options == null)
                     options = new BrowserOptions();
 
-	            // create the view controller
-	            var vc = GetVisibleViewController();
-	            var wkWebViewController = new UIViewController();
-	            // create the WKWebView
-	            var wkWebView = new WKWebView(vc.View.Frame, new WKWebViewConfiguration());
-	            wkWebViewController.View.AddSubview(wkWebView);
-	            var request = new NSUrlRequest(new NSUrl(url));
-	            wkWebView.LoadRequest(request);
-	            await vc.PresentViewControllerAsync(wkWebViewController, true);
+				if ((options?.UseSafariWebViewController ?? false) && UIDevice.CurrentDevice.CheckSystemVersion(9, 0))
+				{
+					// create safari controller
+					var sfViewController = new SFSafariViewController(new NSUrl(url), options?.UseSafariReaderMode ?? false);
 
+					// apply custom tint colors
+					if (UIDevice.CurrentDevice.CheckSystemVersion(10, 0))
+					{
+						var barTintColor = options?.SafariBarTintColor;
+						if (barTintColor != null)
+							sfViewController.PreferredBarTintColor = barTintColor.ToUIColor();
 
-                //if ((options?.UseSafariWebViewController ?? false) && UIDevice.CurrentDevice.CheckSystemVersion(9, 0))
-                //{
-                //    // create safari controller
-                //    var sfViewController = new SFSafariViewController(new NSUrl(url), options?.UseSafariReaderMode ?? false);
+						var controlTintColor = options?.SafariControlTintColor;
+						if (controlTintColor != null)
+							sfViewController.PreferredControlTintColor = controlTintColor.ToUIColor();
+					}
 
-                //    // apply custom tint colors
-                //    if (UIDevice.CurrentDevice.CheckSystemVersion(10, 0))
-                //    {
-                //        var barTintColor = options?.SafariBarTintColor;
-                //        if (barTintColor != null)
-                //            sfViewController.PreferredBarTintColor = barTintColor.ToUIColor();
+					// show safari controller
+					var vc = GetVisibleViewController();
 
-                //        var controlTintColor = options?.SafariControlTintColor;
-                //        if (controlTintColor != null)
-                //            sfViewController.PreferredControlTintColor = controlTintColor.ToUIColor();
-                //    }
+					if (sfViewController.PopoverPresentationController != null)
+					{
+						sfViewController.PopoverPresentationController.SourceView = vc.View;
+					}
 
-                //    // show safari controller
-                //    var vc = GetVisibleViewController();
+					await vc.PresentViewControllerAsync(sfViewController, true);
+				}
+				else if (options?.UseWKWebView ?? false)
+				{
+					// create the view controller
+					var vc = GetVisibleViewController();
+					var wkWebViewController = new UIViewController();
+					// create the WKWebView
+					var wkWebView = new WKWebView(vc.View.Frame, new WKWebViewConfiguration());
+					wkWebViewController.View.AddSubview(wkWebView);
+					var request = new NSUrlRequest(new NSUrl(url));
+					wkWebView.LoadRequest(request);
+					await vc.PresentViewControllerAsync(wkWebViewController, true);
+				}
+				else
+				{
+					UIApplication.SharedApplication.OpenUrl(new NSUrl(url));
+				}
 
-                //    if (sfViewController.PopoverPresentationController != null)
-                //    {
-                //        sfViewController.PopoverPresentationController.SourceView = vc.View;
-                //    }
-                    
-                //    await vc.PresentViewControllerAsync(sfViewController, true);
-                //}
-                //else if (options?.UseWKWebView ?? false)
-                //{
-	               // // create the view controller
-	               // var vc = GetVisibleViewController();
-	               // var wkWebViewController = new UIViewController();
-	               // // create the WKWebView
-	               // var wkWebView = new WKWebView(vc.View.Frame, new WKWebViewConfiguration());
-	               // wkWebViewController.View.AddSubview(wkWebView);
-	               // var request = new NSUrlRequest(new NSUrl(url));
-	               // wkWebView.LoadRequest(request);
-	               // await vc.PresentViewControllerAsync(wkWebViewController, true);
-                //}
-                //else
-                //{
-                //    UIApplication.SharedApplication.OpenUrl(new NSUrl(url));
-                //}
-
-                return true;
+				return true;
             }
             catch (Exception ex)
             {
