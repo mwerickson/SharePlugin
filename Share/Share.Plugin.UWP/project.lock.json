@@ -23404,39 +23404,32 @@
     "UAP,Version=v10.0.10240": []
   },
   "packageFolders": {
-    "C:\\Users\\merickson\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {}
+    "C:\\Users\\merickson\\.nuget\\packages\\": {}
   },
   "project": {
     "restore": {
-      "projectUniqueName": "F:\\dev\\repositories\\SharePlugin\\Share\\Share.Plugin.UWP\\Share.Plugin.UWP.csproj",
+      "projectUniqueName": "D:\\dev\\repositories\\SharePlugin\\Share\\Share.Plugin.UWP\\Share.Plugin.UWP.csproj",
       "projectName": "Share.Plugin.UWP",
-      "projectPath": "F:\\dev\\repositories\\SharePlugin\\Share\\Share.Plugin.UWP\\Share.Plugin.UWP.csproj",
-      "projectJsonPath": "F:\\dev\\repositories\\SharePlugin\\Share\\Share.Plugin.UWP\\project.json",
+      "projectPath": "D:\\dev\\repositories\\SharePlugin\\Share\\Share.Plugin.UWP\\Share.Plugin.UWP.csproj",
+      "projectJsonPath": "D:\\dev\\repositories\\SharePlugin\\Share\\Share.Plugin.UWP\\project.json",
       "packagesPath": "C:\\Users\\merickson\\.nuget\\packages\\",
-      "outputPath": "F:\\dev\\repositories\\SharePlugin\\Share\\Share.Plugin.UWP\\obj\\",
+      "outputPath": "D:\\dev\\repositories\\SharePlugin\\Share\\Share.Plugin.UWP\\obj\\",
       "projectStyle": "ProjectJson",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\"
-      ],
       "configFilePaths": [
         "C:\\Users\\merickson\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "F:\\dev\\NuGetSource": {},
         "http://nuget.grapecity.com/nuget": {},
-        "https://api.nuget.org/v3/index.json": {},
-        "https://www.myget.org/F/asapdev/auth/b0c4c215-84c5-4cd0-ab07-8b5dd1f7db4e/api/v3/index.json": {},
-        "https://www.myget.org/F/ddotmunch/api/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "uap10.0.10240": {
           "projectReferences": {
-            "F:\\dev\\repositories\\SharePlugin\\Share\\Share.Plugin.Abstractions\\Share.Plugin.Abstractions.csproj": {
-              "projectPath": "F:\\dev\\repositories\\SharePlugin\\Share\\Share.Plugin.Abstractions\\Share.Plugin.Abstractions.csproj"
+            "D:\\dev\\repositories\\SharePlugin\\Share\\Share.Plugin.Abstractions\\Share.Plugin.Abstractions.csproj": {
+              "projectPath": "D:\\dev\\repositories\\SharePlugin\\Share\\Share.Plugin.Abstractions\\Share.Plugin.Abstractions.csproj"
             }
           }
         }
